@@ -1,4 +1,3 @@
-<h1>This is the homepage, showing all your categories</h1>
 <button type="button">
   <% if user_signed_in? %>
     <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete } %>

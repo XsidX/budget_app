@@ -17,6 +17,9 @@ module.exports = {
         'primaryGreen': '#5fb523',
         'primaryBlue': '#3778c2',
       },
+      fontFamily: {
+        'slant': ['Sarina', 'cursive'],
+      }
     },
   },
   plugins: [
