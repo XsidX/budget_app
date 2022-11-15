@@ -1,0 +1,15 @@
+<div class="h-full bg-slate-50 flex flex-col justify-center items-center">
+  <h2 class="hover:text-gray-900 text-4xl font-slant">
+    PocketGuard
+  </h2>
+  <div class="absolute bottom-0 left-4 right-4 flex flex-col gap-1">
+    <%= link_to new_user_session_path do %>
+      <button type="button" class="block w-full py-3 text-white bg-primaryBlue uppercase">Log in</button>
+    <% end %>
+    <%= link_to new_user_registration_path do %>
+      <button type="submit" class="block w-full py-3 text-primaryDark hover:text-gray-900 uppercase transition ease-in duration-100">
+        Sign up
+      </button>
+    <% end %>
+  </div>
+</div>
