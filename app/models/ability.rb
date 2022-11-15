@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     when 'user'
       can :read, :all
-      can :manage, Transaction, user_id: user.id
+      can :manage, TransactionEntity, user_id: user.id
       can :manage, Category, user_id: user.id
       can :manage, TransactionCategory, transaction: { user_id: user.id }
       can :manage, TransactionCategory, category: { user_id: user.id }
