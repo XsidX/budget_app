@@ -6,30 +6,22 @@
   <%# end %>
 <!--</button>-->
 <div data-controller="modals" class="absolute top-3 bottom-0 right-0 left-0">
-  <div class="h-full relative flex flex-col gap-3">
-    <div class="grid grid-cols-12 bg-white drop-shadow mx-4 p-4 gap-x-3">
-      <div class="col-span-3">
-        <img src="https://i.postimg.cc/ZKG1rqnm/pexels-ash-376464.jpg" alt="image" class="w-full h-icon-h object-cover object-center">
-      </div>
-      <div class="col-span-6 flex flex-col justify-between pt-2 text-slate-400">
-        <h2>Mac donald's fast-food</h2>
-        <span class="text-xs">12th April 2014</span>
-      </div>
-      <div class="col-span-3 pt-2 text-right text-gray-900 font-semibold">
-        <p>$12.00</p>
-      </div>
-    </div>
-    <div class="grid grid-cols-12 bg-white drop-shadow mx-4 p-4 gap-x-3">
-      <div class="col-span-3">
-        <img src="https://i.postimg.cc/ZKG1rqnm/pexels-ash-376464.jpg" alt="image" class="w-full h-icon-h object-cover object-center">
-      </div>
-      <div class="col-span-6 flex flex-col justify-between pt-2 text-slate-400">
-        <h2>Mac donald's fast-food</h2>
-        <span class="text-xs">12th April 2014</span>
-      </div>
-      <div class="col-span-3 pt-2 text-right text-gray-900 font-semibold">
-        <p>$12.00</p>
-      </div>
+  <div class="h-full relative">
+    <div class="h-full flex flex-col gap-3 overflow-y-auto">
+      <% @categories.each do |category| %>
+        <div class="grid grid-cols-12 bg-white drop-shadow mx-4 p-4 gap-x-3">
+          <div class="col-span-3">
+            <%= image_tag category.icon.attached? ? url_for(category.icon) : "https://via.placeholder.com/150", class: "w-full h-full object-cover rounded-sm" %>
+          </div>
+          <div class="col-span-6 flex flex-col justify-between pt-2 text-slate-400">
+            <h2><%= category.name %></h2>
+            <span class="text-xs"><%= category.created_at.strftime("%d/%m/%Y") %></span>
+          </div>
+          <div class="col-span-3 pt-2 text-right text-gray-900 font-semibold">
+            <p>$12.00</p>
+          </div>
+        </div>
+      <% end %>
     </div>
 
     <div class="absolute bottom-0 left-0 right-0 p-5 bg-primaryGreen">
