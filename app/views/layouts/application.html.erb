@@ -11,11 +11,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-  <main class="pb-4 h-screen">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </main>
+  <body class="bg-slate-50">
+    <main class="h-screen relative">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
   </body>
 </html>
