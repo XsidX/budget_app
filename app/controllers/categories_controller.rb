@@ -1,7 +1,15 @@
 class CategoriesController < ApplicationController
 
+  before_action :set_categories, only: [:index, :show]
+
   def index
-    @categories = current_user.categories
+  end
+
+  def show
+    @category = Category.find(params[:id])
+    @transaction_categories = @category.transaction_categories
+    @transaction_entities = @category.transaction_entities.order('created_at DESC')
+    @total_transaction_amount = @category.transaction_entities.sum(:amount)
   end
 
   def new
@@ -21,5 +29,9 @@ class CategoriesController < ApplicationController
   private
   def category_params
     params.require(:category).permit(:name, :icon)
+  end
+
+  def set_categories
+    @categories = current_user.categories
   end
 end
