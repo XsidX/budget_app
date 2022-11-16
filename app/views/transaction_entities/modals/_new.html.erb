@@ -1,0 +1,36 @@
+<div
+  id="new-category-modal"
+  class="hidden absolute bottom-0 left-0 right-0 z-20 rounded-t-3xl bg-white h-3/4 p-6"
+  data-transition-enter="transition ease-out duration-100"
+  data-transition-enter-start="transform opacity-0 scale-95"
+  data-transition-enter-end="transform opacity-100 scale-100"
+  data-transition-leave="transition ease-in duration-200"
+  data-transition-leave-start="transform opacity-100 scale-100"
+  data-transition-leave-end="transform opacity-0 scale-95"
+>
+  <div data-controller="dropdowns" class="relative h-full">
+    <h2 class="text-center text-lg text-gray-600 mb-6">Add a new transaction</h2>
+    <%= form_with model: TransactionEntity.new do |f| %>
+      <%= f.label :name, "Transaction name", class: "block mb-2 text-lg font-medium text-gray-600 dark:text-gray-300" %>
+      <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-800 text-base rounded-lg focus:ring-0 focus:border-primaryDark block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Name" %>
+      <p class="mt-2 mb-4 text-sm text-gray-600 dark:text-gray-400"> A description of the transaction. Eg, "Halloumi burger and fries"</p>
+
+      <div class="flex gap-8">
+        <div class="w-20 h-20">
+          <%= f.label :amount, "Amount", class: "block mb-2 text-lg font-medium text-gray-600 dark:text-gray-300" %>
+          <%= f.number_field :amount, { class: "border border-gray-300 group-hover:bg-gray-100 outline-none focus:ring-0 focus:ring-offset-0 focus:outline-primaryDark text-center w-full flex items-center text-gray-700  outline-none", min: "0", max: "900", value: "1" } %>
+        </div>
+        <div class="relative">
+          <button data-dropdowns-target="selectCategory" type="button" class="flex gap-2 text-lg font-medium text-gray-600 dark:text-gray-300">
+            <p>+ Select Category</p>
+          </button>
+          <%= render 'transaction_entities/dropdowns/select_category', form: f %>
+        </div>
+      </div>
+
+      <button type="submit" class="absolute bottom-0 left-0 right-0 w-full bg-zinc-200 hover:bg-zinc-300 text-lg text-gray-900 py-3 px-4 rounded-full transition duration-100 ease-in">
+        Create
+      </button>
+      </div>
+    <% end %>
+    </div>
