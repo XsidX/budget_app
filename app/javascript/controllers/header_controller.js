@@ -5,7 +5,7 @@ export default class extends Controller {
     static targets = ["openMenu"]
 
     connect() {
-        console.log("connected")
+        console.log(" header controller connected")
         this.openMenuTarget.addEventListener('click', () => this.openMenuModal())
     }
 

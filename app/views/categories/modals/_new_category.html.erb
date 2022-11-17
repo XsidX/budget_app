@@ -8,13 +8,13 @@
   data-transition-leave-start="transform opacity-100 scale-100"
   data-transition-leave-end="transform opacity-0 scale-95"
 >
-  <div class="relative h-full">
+  <div data-controller="newcategory" class="relative h-full">
     <h2 class="text-center text-lg text-gray-600 mb-6">Add a category</h2>
     <%= form_with model: Category.new, url: categories_path do |f| %>
       <%= f.label :name, "Category name", class: "block mb-2 text-lg font-medium text-gray-600 dark:text-gray-300" %>
       <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-800 text-base rounded-lg focus:ring-0 focus:border-primaryDark block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Name" %>
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-400"> A description of the group of transactions. Eg, 'Groceries' or 'Rent'.</p>
-      <button type="button" class="flex items-center gap-1 w-full mt-2 py-4 cursor-default group">
+      <button type="button" class="inline-flex border-gray-100 shadow-sm border items-center gap-1 mt-2 p-2 cursor-default group">
         <img class="w-4 h-4" alt="category icon" src="https://img.icons8.com/ios/50/000000/plus-math.png"/>
         <label class="text-gray-600 text-lg cursor-pointer group-hover:text-blue-500">
           Upload an icon
@@ -23,6 +23,7 @@
           </span>
         </label>
       </button>
+      <p id="show-file-name" class="text-primaryGreen"></p>
 
       <button type="submit" class="absolute bottom-0 left-0 right-0 w-full bg-zinc-200 hover:bg-zinc-100 text-lg text-gray-900 py-3 px-4 rounded-full">
         Create

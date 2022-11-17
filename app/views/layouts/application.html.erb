@@ -11,11 +11,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-slate-200">
-
+  <body class="bg-slate-50">
     <main class="h-screen relative">
-      <%= render 'shared/navbar' %>
-      <%= render 'shared/menu' %>
+      <% if include_navbar? %>
+        <%= render 'shared/navbar' %>
+        <%= render 'shared/menu' %>
+      <% end %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>

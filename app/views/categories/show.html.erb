@@ -13,23 +13,30 @@
         <p class="text-gray-500 text-sm">lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur.</p>
       </div>
       <div class="h-full flex flex-col overflow-y-auto">
-        <% @transaction_entities.each do |t| %>
+        <% if @transaction_entities.count < 1 %>
           <div class="relative flex flex-col gap-2 border-b border-gray-200 py-4">
-            <p class="text-gray-800 text-lg"><%= t.name %></p>
-            <div class="flex gap-1 items-center text-gray-500">
-              <img src="https://img.icons8.com/ios/50/000000/calendar.png" alt="calendar" class="w-4 h-4" />
-              <%= t.created_at.strftime("%d %b %Y") %> at <%= t.created_at.strftime("%I:%M %p") %>
-            </div>
-            <div class="flex gap-1 items-center text-gray-900 absolute right-2 top-2">
-              <img src="https://img.icons8.com/ios/50/000000/price-tag-euro.png" alt="calendar" class="w-4 h-4" />
-              $<%= t.amount %>
-            </div>
+            <p class="text-gray-800 text-lg">No transaction yet</p>
+            <p class="text-gray-500 text-sm">Add a transaction to see it here</p>
           </div>
+        <% else %>
+          <% @transaction_entities.each do |t| %>
+            <div class="relative flex flex-col gap-2 border-b border-gray-200 py-4">
+              <p class="text-gray-700"><%= t.name %></p>
+              <div class="flex gap-1 items-center text-gray-500">
+                <img src="https://img.icons8.com/ios/50/000000/calendar.png" alt="calendar" class="w-4 h-4" />
+                <%= t.created_at.strftime("%d %b %Y") %> at <%= t.created_at.strftime("%I:%M %p") %>
+              </div>
+              <div class="flex gap-1 items-center text-gray-900 absolute right-2 top-2">
+                <img src="https://img.icons8.com/ios/50/000000/price-tag-euro.png" alt="calendar" class="w-4 h-4" />
+                $<%= t.amount %>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
 
     <div class="absolute bottom-0 left-0 right-0 p-5 bg-primaryGreen">
-      <button data-modals-target="openNewCategory" type="submit" class="block w-full py-3 text-white border border-gray-300 uppercase">
+      <button data-modals-target="openBottomModal" type="submit" class="block w-full py-3 text-white border border-gray-300 uppercase">
         Add a new transaction
       </button>
     </div>

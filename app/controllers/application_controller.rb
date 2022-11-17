@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
     categories_path
   end
 
+  helper_method :include_navbar?
+  def include_navbar?
+    controller_name != 'welcome'
+  end
+
   private
 
   def configure_permitted_parameters
