@@ -1,11 +1,4 @@
-<!--<button type="button">-->
-  <%# if user_signed_in? %>
-    <%#= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete } %>
-  <%# else %>
-    <%#= link_to "Sign in", new_user_session_path %>
-  <%# end %>
-<!--</button>-->
-<div data-controller="modals" class="absolute top-3 bottom-0 right-0 left-0">
+<div data-controller="modals" class="absolute top-20 bottom-0 right-0 left-0">
   <div class="h-full relative">
     <div class="h-full flex flex-col gap-3 overflow-y-auto">
       <% @categories.each do |category| %>
