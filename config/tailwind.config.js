@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         sans: ['Proxima Nova', ...defaultTheme.fontFamily.sans]
       },
+      height: {
+        'icon-h': '4.5rem'
+      },
       colors: {
         'primaryDark': '#434b54',
         'primaryGreen': '#5fb523',
