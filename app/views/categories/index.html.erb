@@ -9,18 +9,20 @@
   <div class="h-full relative">
     <div class="h-full flex flex-col gap-3 overflow-y-auto">
       <% @categories.each do |category| %>
-        <div class="grid grid-cols-12 bg-white drop-shadow mx-4 p-4 gap-x-3">
-          <div class="col-span-3">
-            <%= image_tag category.icon.attached? ? url_for(category.icon) : "https://via.placeholder.com/150", class: "w-full h-full object-cover rounded-sm" %>
-          </div>
-          <div class="col-span-6 flex flex-col justify-between pt-2 text-slate-400">
-            <h2><%= category.name %></h2>
-            <span class="text-xs"><%= category.created_at.strftime("%d/%m/%Y") %></span>
-          </div>
-          <div class="col-span-3 pt-2 text-right text-gray-900 font-semibold">
-            <p>$12.00</p>
-          </div>
-        </div>
+        <%= link_to category_path(category) do %>
+          <button type=button class="grid grid-cols-12 bg-white drop-shadow mx-4 p-4 gap-x-3">
+            <div class="col-span-3">
+              <%= image_tag category.icon.attached? ? url_for(category.icon) : "https://via.placeholder.com/150", class: "w-full h-full object-cover rounded-sm" %>
+            </div>
+            <div class="col-span-6 flex flex-col justify-between pt-2 text-slate-400">
+              <h2><%= category.name %></h2>
+              <span class="text-xs"><%= category.created_at.strftime("%d/%m/%Y") %></span>
+            </div>
+            <div class="col-span-3 pt-2 text-right text-gray-900 font-semibold">
+              <p>$12.00</p>
+            </div>
+          </button>
+        <% end %>
       <% end %>
     </div>
 
@@ -32,5 +34,5 @@
   </div>
   <%= render 'shared/overlay' %>
 </div>
-<%= render 'categories/modals/new_category', category: CategoriesController.new.new %>
+<%= render 'categories/modals/new_category'%>
 

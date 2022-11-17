@@ -8,7 +8,6 @@ export default class extends Controller {
         console.log("connected")
         this.openNewCategoryTarget.addEventListener('click', () => this.openNewCategory())
         this.leaveModalTarget.addEventListener('click', () => this.leaveModal())
-
     }
 
     openNewCategory() {

@@ -10,7 +10,7 @@
 >
   <div class="relative h-full">
     <h2 class="text-center text-lg text-gray-600 mb-6">Add a category</h2>
-    <%= form_with model: category, url: categories_path do |f| %>
+    <%= form_with model: Category.new, url: categories_path do |f| %>
       <%= f.label :name, "Category name", class: "block mb-2 text-lg font-medium text-gray-600 dark:text-gray-300" %>
       <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-800 text-base rounded-lg focus:ring-0 focus:border-primaryDark block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Name" %>
       <p class="mt-2 text-sm text-gray-600 dark:text-gray-400"> A description of the group of transactions. Eg, 'Groceries' or 'Rent'.</p>
