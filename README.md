@@ -10,7 +10,7 @@
 
 ## Live demo
 
-[Live link](https://blog-app-v1-sid.herokuapp.com/)
+[Live link](https://budget-app-sid.herokuapp.com/)
 
 ## Getting Started
 
