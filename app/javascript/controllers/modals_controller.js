@@ -2,15 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 import {enter, leave, toggle} from 'el-transition'
 
 export default class extends Controller {
-    static targets = ["openNewCategory", "leaveModal"]
+    static targets = ["openBottomModal", "leaveModal"]
 
     connect() {
-        console.log("connected")
-        this.openNewCategoryTarget.addEventListener('click', () => this.openNewCategory())
+        console.log("modals controller connected")
+        this.openBottomModalTarget.addEventListener('click', () => this.openBottomModal())
         this.leaveModalTarget.addEventListener('click', () => this.leaveModal())
     }
 
-    openNewCategory() {
+    openBottomModal() {
         const overlay = document.getElementById('overlay')
         const newCategoryModal = document.getElementById('new-category-modal')
         enter(newCategoryModal)
@@ -23,4 +23,6 @@ export default class extends Controller {
         leave(newCategoryModal)
         leave(overlay)
     }
+
+
 }

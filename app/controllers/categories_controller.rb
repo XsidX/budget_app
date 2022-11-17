@@ -17,11 +17,12 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      flash[:success] = 'Category created!'
+      flash[:notice] = 'Category created successfully!'
+      redirect_to categories_path
     else
-      flash[:danger] = 'Category not created!'
+      flash[:error] = @category.errors.full_messages
+      redirect_to categories_path, status: :unprocessable_entity
     end
-    redirect_to categories_path
   end
 
   private

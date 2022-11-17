@@ -5,7 +5,7 @@ export default class extends Controller {
     static targets = ["leaveMenu"]
 
     connect() {
-        console.log("connected")
+        console.log("menu controller connected")
         this.leaveMenuTarget.addEventListener('click', () => this.leaveMenuModal())
     }
 

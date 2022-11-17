@@ -1,15 +1,19 @@
-<div class="bg-slate-50 relative h-full">
+<div data-controller="sessions" class="absolute top-16 bottom-5 right-0 left-0">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
     <div class="bg-white pl-4 pb-6">
-      <button type="button" class="flex items-center gap-4 w-full py-4 mb-6 border-b-2 border-gray-300 cursor-default">
-        <img class="w-10 h-10 rounded-full" alt="user photo" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y">
-        <label class="text-slate-400 text-lg cursor-pointer">
-          Upload your avatar
-          <span class="hidden">
+      <div class="w-full py-4 mb-6 border-b-2 border-gray-300">
+        <button type="button" class="flex items-center gap-4 cursor-default">
+          <img class="w-10 h-10 rounded-full" alt="user photo" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y">
+          <label class="text-slate-400 text-lg cursor-pointer">
+            Upload your avatar
+            <span class="hidden">
             <%= f.file_field :avatar%>
           </span>
-        </label>
-      </button>
+          </label>
+        </button>
+        <p id="show-avatar-name" class="ml-14 text-primaryGreen"></p>
+      </div>
+
       <div class="relative z-0 mb-6 w-full group">
         <%= f.text_field :name, autocomplete: "name", placeholder: '', class: "block py-2.5 px-0 w-full text-lg text-primaryDark bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-primaryBlue peer" %>
         <%= f.label :name, "Full name", class: "peer-focus:font-medium absolute text-lg text-slate-400 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6" %>
@@ -29,6 +33,7 @@
         <%= f.label :password_confirmation, class: "peer-focus:font-medium absolute text-lg text-slate-400 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"%>
       </div>
     </div>
+    <%= render "devise/shared/error_messages", resource: resource %>
     <div class="absolute bottom-0 left-4 right-4">
       <button type="submit" class="block w-full py-3 text-white bg-primaryBlue uppercase">
         Sign up
