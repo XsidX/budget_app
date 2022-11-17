@@ -1,9 +1,7 @@
 class CategoriesController < ApplicationController
+  before_action :set_categories, only: %i[index show]
 
-  before_action :set_categories, only: [:index, :show]
-
-  def index
-  end
+  def index; end
 
   def show
     @category = Category.find(params[:id])
@@ -19,14 +17,15 @@ class CategoriesController < ApplicationController
   def create
     @category = current_user.categories.build(category_params)
     if @category.save
-      flash[:success] = "Category created!"
+      flash[:success] = 'Category created!'
     else
-      flash[:danger] = "Category not created!"
+      flash[:danger] = 'Category not created!'
     end
     redirect_to categories_path
   end
 
   private
+
   def category_params
     params.require(:category).permit(:name, :icon)
   end
