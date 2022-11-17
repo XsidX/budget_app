@@ -1,7 +1,20 @@
-<nav data-controller="header" class="fixed top-0 right-0 left-0 flex items-center h-16 bg-primaryBlue px-4">
-  <div data-header-target="openMenu" class="inline-block cursor-pointer">
-    <div class="w-7 h-1 bg-gray-100 my-1"></div>
-    <div class="w-7 h-1 bg-gray-100"></div>
-    <div class="w-7 h-1 bg-gray-100 my-1"></div>
-  </div>
+<nav data-controller="header" class="fixed top-0 right-0 left-0 flex items-center justify-between h-16 bg-primaryBlue px-4">
+  <% if controller_name == 'categories' && action_name == 'index' %>
+    <div data-header-target="openMenu" class="inline-block cursor-pointer">
+      <div class="w-7 h-1 bg-gray-100 my-1"></div>
+      <div class="w-7 h-1 bg-gray-100"></div>
+      <div class="w-7 h-1 bg-gray-100 my-1"></div>
+    </div>
+  <% elsif controller_name == 'categories' && action_name == 'show' %>
+    <%= link_to categories_path do %>
+      <button type="button" class="text-3xl cursor-pointer text-white">←</button>
+    <% end %>
+  <% end %>
+
+  <% if controller_name == 'categories' && action_name == 'index' %>
+    <h1 class="text-lg text-white uppercase">Categories</h1>
+  <% elsif controller_name == 'categories' && action_name == 'show' %>
+    <h1 class="text-lg text-white uppercase">Transactions</h1>
+  <% end %>
+  <div class=""></div>
 </nav>
