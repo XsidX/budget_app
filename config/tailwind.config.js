@@ -15,6 +15,9 @@ module.exports = {
       height: {
         'icon-h': '4.5rem'
       },
+      spacing: {
+        '22': '5.6rem',
+      },
       colors: {
         'primaryDark': '#434b54',
         'primaryGreen': '#5fb523',

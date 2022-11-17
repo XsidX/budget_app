@@ -21,8 +21,9 @@
           <%= f.number_field :amount, { class: "border border-gray-300 group-hover:bg-gray-100 outline-none focus:ring-0 focus:ring-offset-0 focus:outline-primaryDark text-center w-full flex items-center text-gray-700  outline-none", min: "0", max: "900", value: "1" } %>
         </div>
         <div class="relative">
-          <button data-dropdowns-target="selectCategory" type="button" class="flex gap-2 text-lg font-medium text-gray-600 dark:text-gray-300">
+          <button data-dropdowns-target="selectCategory" type="button" class="flex flex-col gap-2 text-lg font-medium text-gray-600 dark:text-gray-300">
             <p>+ Select Category</p>
+            <p class="text-xs text-primaryBlue mt-1">You must select atleast one category to continue</p>
           </button>
           <%= render 'transaction_entities/dropdowns/select_category', form: f %>
         </div>

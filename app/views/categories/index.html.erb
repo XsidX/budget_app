@@ -1,6 +1,12 @@
 <div data-controller="modals" class="absolute top-20 bottom-0 right-0 left-0">
   <div class="h-full relative">
     <div class="h-full flex flex-col gap-3 overflow-y-auto">
+      <% if @categories.count < 1 %>
+        <div class="relative flex flex-col gap-2 border-b border-gray-200 p-4">
+          <p class="text-gray-800 text-lg">No categories found</p>
+          <p class="text-gray-500 text-sm">You can create a new category by clicking the button below</p>
+        </div>
+      <% end %>
       <% @categories.each do |category| %>
         <%= link_to category_path(category) do %>
           <button type=button class="grid grid-cols-12 bg-white shadow-md mx-4 p-4 gap-x-3">
