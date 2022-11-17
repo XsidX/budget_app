@@ -12,7 +12,10 @@
   </head>
 
   <body class="bg-slate-200">
+
     <main class="h-screen relative">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/menu' %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
