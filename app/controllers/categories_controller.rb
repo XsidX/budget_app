@@ -32,6 +32,6 @@ class CategoriesController < ApplicationController
   end
 
   def set_categories
-    @categories = current_user.categories
+    @categories = current_user.categories.with_attached_icon
   end
 end
