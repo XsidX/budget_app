@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe TransactionCategory, type: :model do
   context 'associations' do
     it('belongs to a transaction') do
-      transaction_category = TransactionCategory.reflect_on_association(:transaction)
+      transaction_category = TransactionCategory.reflect_on_association(:transaction_entity)
       association = transaction_category.macro
       expect(association).to eq(:belongs_to)
     end
