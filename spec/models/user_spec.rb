@@ -8,8 +8,8 @@ RSpec.describe User, type: :model do
       expect(association).to eq(:has_many)
     end
 
-    it('has many transactions') do
-      user = User.reflect_on_association(:transactions)
+    it('has many transaction_entities') do
+      user = User.reflect_on_association(:transaction_entities)
       association = user.macro
       expect(association).to eq(:has_many)
     end

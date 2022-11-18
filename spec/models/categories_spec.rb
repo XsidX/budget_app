@@ -8,8 +8,8 @@ RSpec.describe Category, type: :model do
       expect(association).to eq(:belongs_to)
     end
 
-    it('has many transactions') do
-      category = Category.reflect_on_association(:transactions)
+    it('has many transaction_entities') do
+      category = Category.reflect_on_association(:transaction_entities)
       association = category.macro
       expect(association).to eq(:has_many)
     end
