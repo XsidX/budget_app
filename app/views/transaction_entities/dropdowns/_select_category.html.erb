@@ -1,0 +1,19 @@
+<div
+  id="select-category-dropdown"
+  class="hidden absolute top-1/2 left-0 right-0 z-20 bg-white h-48 p-1 overflow-y-auto shadow-md border-t border-gray-300"
+  data-transition-enter="transition ease-out duration-100"
+  data-transition-enter-start="transform opacity-0 scale-95"
+  data-transition-enter-end="transform opacity-100 scale-100"
+  data-transition-leave="transition ease-in duration-200"
+  data-transition-leave-start="transform opacity-100 scale-100"
+  data-transition-leave-end="transform opacity-0 scale-95"
+>
+    <div class="py-2 px-1 overflow-y-auto">
+        <% @categories.each do |category| %>
+          <div class="flex items-center gap-2 w-full overflow-x-auto ">
+            <%= form.check_box :category_ids, {multiple: true, class: "check-box w-4 h-4 text-primaryDark bg-gray-100 rounded border-gray-300 focus:ring-0 focus:ring-offset-0 dark:border-gray-500"}, category.id, nil %>
+            <label for="category_id" class="flex items-center gap-2 flex-nowrap"><%= category.name %></label>
+          </div>
+        <% end %>
+    </div>
+</div>

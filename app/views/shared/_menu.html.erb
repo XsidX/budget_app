@@ -1,0 +1,71 @@
+<div
+  data-contoller="menu"
+  id="menu-modal"
+  class="hidden absolute inset-0 z-50 bg-slate-50"
+  data-transition-enter="transition ease-out duration-100"
+  data-transition-enter-start="transform opacity-0 scale-95"
+  data-transition-enter-end="transform opacity-100 scale-100"
+  data-transition-leave="transition ease-in duration-75"
+  data-transition-leave-start="transform opacity-100 scale-100"
+  data-transition-leave-end="transform opacity-0 scale-95"
+>
+  <div class="h-36 bg-primaryBlue text-white px-4 py-6 text-lg">
+    <div class="flex justify-between items-center">
+      <%= link_to request.referrer do %>
+        <button type="button" data-menu-target="leaveMenu" class="text-3xl cursor-pointer">←</button>
+      <% end %>
+      <p class="">Profile</p>
+      <svg viewBox="0 0 28 28" alt="notification bell" class="" fill="currentColor" height="25" width="25"><path d="M7.847 23.488C9.207 23.488 11.443 23.363 14.467 22.806 13.944 24.228 12.581 25.247 10.98 25.247 9.649 25.247 8.483 24.542 7.825 23.488L7.847 23.488ZM24.923 15.73C25.17 17.002 24.278 18.127 22.27 19.076 21.17 19.595 18.724 20.583 14.684 21.369 11.568 21.974 9.285 22.113 7.848 22.113 7.421 22.113 7.068 22.101 6.79 22.085 4.574 21.958 3.324 21.248 3.077 19.976 2.702 18.049 3.295 17.305 4.278 16.073L4.537 15.748C5.2 14.907 5.459 14.081 5.035 11.902 4.086 7.022 6.284 3.687 11.064 2.753 15.846 1.83 19.134 4.096 20.083 8.977 20.506 11.156 21.056 11.824 21.986 12.355L21.986 12.356 22.348 12.561C23.72 13.335 24.548 13.802 24.923 15.73Z"></path></svg>
+    </div>
+  </div>
+
+  <div class="relative">
+    <div class="rounded-full h-20 w-20 bg-white overflow-hidden absolute left-4 -top-10">
+      <% if user_signed_in? %>
+        <%= image_tag current_user.avatar.attached? ? url_for(current_user.avatar) : "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y", class: "w-full h-full object-cover rounded-sm" %>
+      <% end %>
+    </div>
+    <div class="flex flex-col pb-4 pt-16 border-b-4 border-gray-200">
+      <% if user_signed_in? %>
+        <p class="text-gray-900 text-2xl px-4"><%= current_user.name %></p>
+        <p class="text-gray-500 text-lg px-4"><%= current_user.email %></p>
+      <% else %>
+        <p class="text-gray-900 text-2xl px-4">Guest</p>
+      <% end %>
+    </div>
+
+    <div class="flex flex-col">
+      <div class="py-6 text-gray-900 flex justify-between items-center cursor-pointer border-b border-gray-200">
+        <p class="text-lg pl-4">Personal information</p>
+        <img src="https://www.paypalobjects.com/digitalassets/c/paypal-ui/icons/svg/chevron-right.svg" alt="chevron right" class="pr-4 h-12 w-12">
+      </div>
+      <div class="py-6 text-gray-900 flex justify-between items-center cursor-pointer border-b border-gray-200">
+        <p class="text-lg pl-4">Notifications and preferences</p>
+        <img src="https://www.paypalobjects.com/digitalassets/c/paypal-ui/icons/svg/chevron-right.svg" alt="chevron right" class="pr-4 h-12 w-12">
+      </div>
+      <div class="py-6 text-gray-900 flex justify-between items-center cursor-pointer border-b border-gray-200">
+        <p class="text-lg pl-4">Message center</p>
+        <img src="https://www.paypalobjects.com/digitalassets/c/paypal-ui/icons/svg/chevron-right.svg" alt="chevron right" class="pr-4 h-12 w-12">
+      </div>
+      <div class="py-6 text-gray-900 flex justify-between items-center cursor-pointer border-b border-gray-200">
+        <p class="text-lg pl-4">Data and privacy</p>
+        <img src="https://www.paypalobjects.com/digitalassets/c/paypal-ui/icons/svg/chevron-right.svg" alt="chevron right" class="pr-4 h-12 w-12">
+      </div>
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+          <button class="py-6 px-4 text-lg text-gray-900 flex gap-2 items-center">
+            <i data-visualcompletion="css-img" class="" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y0/r/JQDhwi1NIpe.png&quot;); background-position: 0px -204px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
+            <p>Logout</p>
+          </button>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <button class="py-6 px-4 text-lg text-gray-900 flex gap-2 items-center">
+            <i data-visualcompletion="css-img" class="" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y0/r/JQDhwi1NIpe.png&quot;); background-position: 0px -204px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
+            <p>Login</p>
+          </button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

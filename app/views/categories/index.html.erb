@@ -1,0 +1,37 @@
+<div data-controller="modals" class="absolute top-20 bottom-0 right-0 left-0">
+  <div class="h-full w-full relative">
+    <div class="h-full w-full flex flex-col gap-3 overflow-y-auto pb-28">
+      <% if @categories.count < 1 %>
+        <div class="relative flex flex-col gap-2 border-b border-gray-200 p-4">
+          <p class="text-gray-800 text-lg">No categories found</p>
+          <p class="text-gray-500 text-sm">You can create a new category by clicking the button below</p>
+        </div>
+      <% end %>
+      <% @categories.each do |category| %>
+        <%= link_to category_path(category) do %>
+          <div class="grid grid-cols-12 bg-white shadow-md mx-4 p-4 gap-x-3">
+            <div class="col-span-3">
+              <%= image_tag category.icon.attached? ? url_for(category.icon) : "https://via.placeholder.com/150", class: "w-full md:h-28 object-cover rounded-sm" %>
+            </div>
+            <div class="col-span-6 flex flex-col justify-between items-left mt-4">
+              <div class="text-left text-gray-700 "><h2><%= category.name %></h2></div>
+              <div class="text-left"><span class="text-xs text-gray-500"><%= category.created_at.strftime("%d/%m/%Y") %></span></div>
+            </div>
+            <div class="col-span-3 pt-2 text-right text-gray-900">
+              <p>$<%= category.transaction_entities.sum(:amount) %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="absolute bottom-0 left-0 right-0 p-5 bg-primaryGreen">
+      <button type="submit" data-modals-target="openBottomModal" class="block w-full py-3 text-white border border-gray-300 uppercase">
+        Add new category
+      </button>
+    </div>
+  </div>
+  <%= render 'shared/overlay' %>
+</div>
+<%= render 'categories/modals/new_category'%>
+
