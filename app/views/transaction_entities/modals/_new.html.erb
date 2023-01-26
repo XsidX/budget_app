@@ -11,17 +11,17 @@
   <div data-controller="dropdowns" class="relative h-full">
     <h2 class="text-center text-lg text-gray-600 mb-6">Add a new transaction</h2>
     <%= form_with model: TransactionEntity.new do |f| %>
-      <%= f.label :name, "Transaction name", class: "block mb-2 text-lg font-medium text-gray-600 dark:text-gray-300" %>
-      <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-800 text-base rounded-lg focus:ring-0 focus:border-primaryDark block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "Name" %>
-      <p class="mt-2 mb-4 text-sm text-gray-600 dark:text-gray-400"> A description of the transaction. Eg, "Halloumi burger and fries"</p>
+      <%= f.label :name, "Transaction name", class: "block mb-2 text-lg font-medium text-gray-600" %>
+      <%= f.text_field :name, class: "bg-gray-50 border border-gray-300 text-gray-800 text-base rounded-lg focus:ring-0 focus:border-primaryDark block w-full p-2.5", placeholder: "Name" %>
+      <p class="mt-2 mb-4 text-sm text-gray-600"> A description of the transaction. Eg, "Halloumi burger and fries"</p>
 
       <div class="flex gap-8">
         <div class="w-20 h-20">
-          <%= f.label :amount, "Amount", class: "block mb-2 text-lg font-medium text-gray-600 dark:text-gray-300" %>
+          <%= f.label :amount, "Amount", class: "block mb-2 text-lg font-medium text-gray-600" %>
           <%= f.number_field :amount, { class: "border border-gray-300 group-hover:bg-gray-100 outline-none focus:ring-0 focus:ring-offset-0 focus:outline-primaryDark text-center w-full flex items-center text-gray-700  outline-none", min: "0", max: "900", value: "1" } %>
         </div>
         <div class="relative">
-          <button data-dropdowns-target="selectCategory" type="button" class="flex flex-col gap-2 text-lg font-medium text-gray-600 dark:text-gray-300">
+          <button data-dropdowns-target="selectCategory" type="button" class="flex flex-col gap-2 text-lg font-medium text-gray-600">
             <p>+ Select Category</p>
             <p class="text-xs text-primaryBlue mt-1">You must select atleast one category to continue</p>
           </button>
